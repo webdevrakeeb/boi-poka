@@ -5,7 +5,7 @@ import { HiOutlineXMark } from "react-icons/hi2";
 
 
 const NavBar = () => {
-    const [open, setOpen] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
         <>
@@ -39,15 +39,19 @@ const NavBar = () => {
                         </div>
                         <div className="header-btns">
                             <ul className="flex items-center gap-x-4">
-                                <li>
-                                    <a href="#" className="text-[18px] font-semibold py-[18px] px-[28px] bg-[#23BE0A] text-white rounded-lg">Sign In</a>
+                                <li className="hidden md:block">
+                                    <a href="#" className="text-[18px] font-semibold md:py-[10px] lg:py-[18px] md:px-[20px] lg:px-[28px] bg-[#23BE0A] text-white rounded-lg">Sign In</a>
                                 </li>
-                                <li>
-                                    <a href="#" className="text-[18px] font-semibold py-[18px] px-[28px] bg-[#59C6D2] text-white rounded-lg">Sign Up</a>
+                                <li className="hidden md:block">
+                                    <a href="#" className="text-[18px] font-semibold md:py-[10px] lg:py-[18px] md:px-[20px] lg:px-[28px] bg-[#59C6D2] text-white rounded-lg">Sign Up</a>
                                 </li>
-                                <li id="menu-icon" className="menu-icon lg:hidden" onClick={() => setOpen(!open)}>
+                                <li
+                                    id="menu-icon"
+                                    className="menu-icon lg:hidden"
+                                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                >
                                     {
-                                        open === false ? <VscMenu className="text-4xl cursor-pointer"/>
+                                        mobileMenuOpen === false ? <VscMenu className="text-4xl cursor-pointer"/>
                                         : <HiOutlineXMark className="text-4xl cursor-pointer"/>
                                     }
                                 </li>
@@ -55,9 +59,36 @@ const NavBar = () => {
                         </div>
                     </div>
                 </div>
-                <aside id="sideBar" className={`w-80 h-[100vh] bg-fuchsia-600 absolute duration-200 z-10 top-0 ${
-                    open === false ? '-left-80' : 'left-0'
-                }  `}>
+                <aside id="sideBar" className={`w-80 h-[100vh] p-5 bg-white shadow absolute  duration-200 z-10 top-0 
+                    ${
+                        mobileMenuOpen === false ? '-left-80' : 'left-0'
+                    } 
+                `}>
+
+                    <div className="asideheader">
+                        <a href="#">
+                            <img src="https://i.ibb.co/1fxtKByv/BookVibe.png" alt="" />
+                        </a>
+                    </div>
+                    <div className="aside-items flex flex-col gap-y-3 pt-7">
+                        <NavLink to='/' className={({isActive}) => `${
+                                isActive
+                                    ? 'text-[#23BE0A]'
+                                    : 'text-[rgba(19,19,19,0.80)]'
+                            }`}>Home</NavLink>
+
+                            <NavLink to='/dashboard' className={({isActive}) => `${
+                                isActive
+                                    ? 'text-[#23BE0A]'
+                                    : 'text-[rgba(19,19,19,0.80)]'
+                            }`}>Listed Books</NavLink>
+
+                            <NavLink to='/readgraph' className={({isActive}) => `${
+                                isActive
+                                    ? 'text-[#23BE0A]'
+                                    : 'text-[rgba(19,19,19,0.80)]'
+                            }`}>Pages to Read</NavLink>
+                    </div>
                     
                 </aside>
             </div>
