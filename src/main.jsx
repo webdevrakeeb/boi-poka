@@ -11,6 +11,7 @@ import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
 import ReadGraph from './components/ReadGraph/ReadGraph';
 import BookDetail from './components/BookDetail/BookDetail';
+import ListedBooks from './components/ListedBooks/ListedBooks';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/listedbooks',
+        loader : () => fetch('/booksData.json'),
+        element: <ListedBooks></ListedBooks>
       },
       {
         path: 'bookdetails/:bookId',

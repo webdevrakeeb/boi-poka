@@ -24,7 +24,7 @@ const NavBar = () => {
                                     : 'text-[rgba(19,19,19,0.80)] border-transparent'
                             }`}>Home</NavLink>
 
-                            <NavLink to='/dashboard' className={({isActive}) => `py-[10px] px-[17px] border rounded-lg ${
+                            <NavLink to='/listedbooks' className={({isActive}) => `py-[10px] px-[17px] border rounded-lg ${
                                 isActive
                                     ? 'text-[#23BE0A] border-[#23BE0A]'
                                     : 'text-[rgba(19,19,19,0.80)] border-transparent'

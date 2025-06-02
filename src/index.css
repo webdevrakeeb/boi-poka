@@ -49,3 +49,7 @@ body {
   }
 }
 
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid rgba(19, 19, 19, 0.30);
+}

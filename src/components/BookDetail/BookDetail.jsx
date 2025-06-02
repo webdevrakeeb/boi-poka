@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToReadList, addToWishList } from "../Utily/AddToLS";
 
 const BookDetail = () => {
     const {bookId} = useParams();
@@ -6,6 +7,19 @@ const BookDetail = () => {
     const data = useLoaderData();
     const targetBook = data.find(book => book.bookId === targetBookId);
     const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating} = targetBook;
+
+    // Handle Mark Read
+    const handleMarkRead = (bookID) => {
+        addToReadList(bookID);
+    }
+
+    // Handle Wish List
+    const addWithList = (bookID) => {
+        addToWishList(bookID);
+    }
+
+
+
     return (
         <div className="container pb-9 md:pb-[60px] lg:pb-[100px]">
             <div className="grid gap-y-6 lg:grid-cols-2 gap-x-12">
@@ -53,10 +67,14 @@ const BookDetail = () => {
                     <div className="dual-btns pt-8">
                         <ul className="flex items-center gap-x-4">
                             <li>
-                                <button className="text-[#131313] text-lg font-semibold py-[12px] px-[28px] border border-[rgba(19,19,19,0.30)] rounded-lg">Read</button>
+                                <button
+                                    onClick={() => handleMarkRead(targetBookId)}
+                                    className="text-[#131313] text-lg font-semibold py-[12px] px-[28px] border border-[rgba(19,19,19,0.30)] rounded-lg">Read</button>
                             </li>
                             <li>
-                                <button className="text-white bg-[#50B1C9] text-lg font-semibold py-[12px] px-[28px] rounded-lg">Wishlist</button>
+                                <button
+                                    onClick={()=>addWithList(targetBookId)}
+                                    className="text-white bg-[#50B1C9] text-lg font-semibold py-[12px] px-[28px] rounded-lg">Wishlist</button>
                             </li>
                         </ul>
                     </div>
