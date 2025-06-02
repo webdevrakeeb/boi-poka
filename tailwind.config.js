@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         playfair: ['Playfair Display', 'serif'],
-      },
+      }
     },
   },
   plugins: [
