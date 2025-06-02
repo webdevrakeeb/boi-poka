@@ -34,12 +34,15 @@ const ListedBooks = () => {
         if(sortType === 'Rating') {
             const sortedReadList = [...readList].sort((a,b)=> a.rating - b.rating);
             setReadList(sortedReadList);
+            setWishtList(sortedReadList);
         } else if (sortType === 'Number of pages') {
             const sortedReadList = [...readList].sort((a,b)=> a.totalPages - b.totalPages);
             setReadList(sortedReadList);
+            setWishtList(sortedReadList);
         } else if (sortType === 'Publisher year') {
             const sortedReadList = [...readList].sort((a,b)=> a.yearOfPublishing - b.yearOfPublishing);
             setReadList(sortedReadList);
+            setWishtList(sortedReadList);
         }
     }
 
