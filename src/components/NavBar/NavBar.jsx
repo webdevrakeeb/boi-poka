@@ -77,7 +77,7 @@ const NavBar = () => {
                                     : 'text-[rgba(19,19,19,0.80)]'
                             }`}>Home</NavLink>
 
-                            <NavLink to='/dashboard' className={({isActive}) => `${
+                            <NavLink to='/listedbooks' className={({isActive}) => `${
                                 isActive
                                     ? 'text-[#23BE0A]'
                                     : 'text-[rgba(19,19,19,0.80)]'
